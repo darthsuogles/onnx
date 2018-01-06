@@ -303,7 +303,7 @@ OPERATOR_SCHEMA(OneHotEncoder)
 
     This operator assumes every input in X is of the same category set
     (meaning there is only one category count).
-	
+
 	If the input is a tensor of float, int32, or double, the data will be cast
     to int64s and the cats_int64s category list will be used for the lookups.
 )DOC")
@@ -317,6 +317,15 @@ OPERATOR_SCHEMA(OneHotEncoder)
     "if true and category is not present, will return all zeros, if false and missing category, operator will return false",
     AttributeProto::INT,
     OPTIONAL);
+
+OPERATOR_SCHEMA(OpenStringMapper)
+.SetDomain("ai.onnx.ml")
+.SetDoc(R"DOC(
+    Map a string to some integral value.
+    There is no need for a specific bounded vocabulary
+    )DOC")
+.Input(0, "X", "The Input String", "tensor(string)")
+.Output(0, "Y", "The output integral value", "tensor(int64)");
 
 OPERATOR_SCHEMA(Scaler)
 .SetDomain("ai.onnx.ml")

@@ -572,7 +572,7 @@ opset_import {
   
       This operator assumes every input in X is of the same category set
       (meaning there is only one category count).
-  	
+  
   	If the input is a tensor of float, int32, or double, the data will be cast
       to int64s and the cats_int64s category list will be used for the lookups.
 
@@ -618,6 +618,40 @@ opset_import {
 <dt><tt>T</tt> : tensor(string), tensor(int64), tensor(int32), tensor(float), tensor(double)</dt>
 <dd> allowed types.</dd>
 </dl>
+
+### <a name="ai.onnx.ml.OpenStringMapper-1"></a>**ai.onnx.ml.OpenStringMapper-1**</a>
+
+  Map a string to some integral value.
+      There is no need for a specific bounded vocabulary
+      
+
+#### Versioning
+
+This operator is used if you are using version 1 of operator set 'ai.onnx.ml' until the next BC-breaking change to this operator; e.g., it will be used if your protobuf has:
+
+~~~~
+opset_import {
+  version = 1
+  domain = 'ai.onnx.ml'
+}
+~~~~
+
+#### Inputs
+
+<dl>
+<dt><tt>X</tt> : tensor(string)</dt>
+<dd>The Input String</dd>
+</dl>
+
+#### Outputs
+
+<dl>
+<dt><tt>Y</tt> : tensor(int64)</dt>
+<dd>The output integral value</dd>
+</dl>
+
+#### Type Constraints
+
 
 ### <a name="ai.onnx.ml.SVMClassifier-1"></a>**ai.onnx.ml.SVMClassifier-1**</a>
 
